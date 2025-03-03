@@ -15,3 +15,11 @@ window.Echo = new Echo({
 window.Echo.channel("admin-notifications").listen("OrderPlaced", (event) => {
     alert(`Pesanan baru dari ${event.order.user.name}`);
 });
+
+/**
+ * Echo exposes an expressive API for subscribing to channels and listening
+ * for events that are broadcast by Laravel. Echo and event broadcasting
+ * allow your team to quickly build robust real-time web applications.
+ */
+
+import './echo';

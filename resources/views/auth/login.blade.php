@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="flex justify-center items-center bg-black w-full h-screen">
-    <div class="bg-white shadow-xl flex flex-col md:flex-row w-full h-full border border-black">
+    <div class="bg-white shadow-xl flex flex-col md:flex-row w-full h-full">
 
         <!-- Bagian kiri -->
         <div class="bg-gradient-to-b from-blue-500 via-blue-400 to-blue-0 text-white p-8 flex flex-col justify-center items-center w-full md:w-1/2">
@@ -33,9 +33,9 @@
 
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 text-xs md:text-sm">
                     <label class="flex items-center mb-2 md:mb-0">
-                        <input type="checkbox" name="remember" class="mr-2"> Remember me
+                        <input type="checkbox" name="remember" class="mr-2"> Ingatkan Saya
                     </label>
-                    <a href="{{ route("password.request") }}" class="text-blue-500 hover:underline">Forgot Password?</a>
+                    <a href="{{ route("password.request") }}" class="text-blue-500">Forgot Password?</a>
                 </div>
 
                 <!-- Tombol Login -->
@@ -54,7 +54,7 @@
                         <span class="text-gray-700 font-medium">Google</span>
                     </button>
                 </a>
-                <p class="mt-4 text-xs md:text-sm">Belum punya akun? <a href="{{ route('register') }}" class="text-blue-500 hover:underline">Register</a></p>
+                <p class="mt-4 text-xs md:text-sm">Belum punya akun? <a href="{{ route('register') }}" class="text-blue-500">Register</a></p>
             </div>
         </div>
     </div>

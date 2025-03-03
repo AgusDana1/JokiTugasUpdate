@@ -7,16 +7,16 @@
     <a href="{{ route('admin.dashboard') }}">
         <i class="bi bi-arrow-left p-2 px-3 w-23"></i>
     </a>
-    <h1 class="text-3xl font-bold mb-6 text-blue-600">Detail Pesanan {{ $order->id }}</h1>
+    <h1 class="text-3xl font-bold mb-6 text-blue-600 text-center">Detail Pesanan {{ $order->id }}</h1>
 
     <div class="bg-white shadow-md rounded-lg p-6">
-        <p><strong>Nama:</strong> {{ $order->user->name }}</p>
-        <p><strong>Mata Pelajaran:</strong> {{ $order->mapel }}</p>
-        <p><strong>Deskripsi Tugas:</strong> {{ $order->deskripsi_tugas }}</p>
-        <p><strong>Deadline:</strong> {{ date('d M Y H:i', strtotime($order->deadline)) }}</p>
-        <p><strong>Jumlah Halaman:</strong> {{ $order->jumlah_halaman }}</p>
-        <p><strong>Metode Pembayaran:</strong> {{ $order->payment_method }}</p>
-        <p><strong>Status:</strong> 
+        <p class="mb-2"><strong>Nama:</strong> {{ $order->user->name }}</p>
+        <p class="mb-2"><strong>Mata Pelajaran:</strong> {{ $order->mapel }}</p>
+        <p class="mb-2"><strong>Deskripsi Tugas:</strong> {{ $order->deskripsi_tugas }}</p>
+        <p class="mb-2"><strong>Deadline:</strong> {{ date('d M Y H:i', strtotime($order->deadline)) }}</p>
+        <p class="mb-2"><strong>Jumlah Halaman:</strong> {{ $order->jumlah_halaman }}</p>
+        <p class="mb-2"><strong>Metode Pembayaran:</strong> {{ $order->payment_method }}</p>
+        <p class="mb-2"><strong>Status:</strong> 
             <span class="px-3 py-1 rounded-full text-white {{ $order->status == 'pending' ? 'bg-yellow-500' : ($order->status == 'paid' ? 'bg-green-500' : 'bg-gray-500') }}">
                 {{ ucfirst($order->status) }}
             </span>

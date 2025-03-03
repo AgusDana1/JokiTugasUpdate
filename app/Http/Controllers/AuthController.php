@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    // logic login
     public function showLogin()
     {
         return view('auth.login');
@@ -31,6 +33,7 @@ class AuthController extends Controller
         return back()->withErrors(['email' => 'Invalid email or Password']);
     }
 
+    // logic register
     public function showRegister()
     {
         return view('auth.register');
@@ -93,7 +96,8 @@ class AuthController extends Controller
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function ($user, $password) {
                 $user->forceFill([
-                    'password' => Hash::make($user->password)
+                    'password' => Hash::make($password),
+                    'remember_token' => Str::random(60),
                 ])->save();
 
                 event(new PasswordReset($user));
@@ -102,12 +106,14 @@ class AuthController extends Controller
 
         return $status === Password::PASSWORD_RESET
         ? redirect()->route('login')->with('status', __($status))
-        : back()->withErrors(['email' => __($status)]);
+        : back()->withErrors(['email' => [__($status)]]);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
-        return redirect()->route('home');
+        $request->session()->invalidate();
+        $request->session()->regenerate();
+        return redirect()->route('login');
     }
 }

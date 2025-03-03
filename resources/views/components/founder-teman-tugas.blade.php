@@ -1,5 +1,5 @@
 <h1 class="mt-14 mb-8 font-bold text-2xl font-poppins text-center">Para Pendiri Website Sheets Si Teman Tugasmu</h1>
-<div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-4 w-4/5 md:w-full">
+<div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-4 mt-10 w-4/5 md:w-full">
     {{-- Agus Dana --}}
     <div class="col-span-1 shadow-lg rounded-lg relative hover:bg-blue-500 text-black hover:text-white duration-500 transition-all flex flex-col items-center gap-6 group">
         <div class="w-32 h-32 rounded-full overflow-hidden border-[10px] border-white group-hover:-top-16 group-hover:scale-105 duration-500 transition-all absolute mx-auto -top-10 bg-white">

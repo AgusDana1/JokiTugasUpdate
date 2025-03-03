@@ -9,13 +9,13 @@
 @section('content')
 <div class="container mx-auto mt-28 px-4">
     <div class="flex justify-between items-center">
-        <h1 class="text-3xl font-bold mb-6 text-blue-600">Dashboard</h1>
-        <i class="bi bi-bell text-2xl cursor-pointer"></i>
+        {{-- <h1 class="text-3xl font-bold mb-6 text-blue-600">Dashboard</h1> --}}
+        {{-- <i class="bi bi-bell text-2xl cursor-pointer"></i> --}}
     </div>
 
     <!-- Daftar Pesanan -->
     <div>
-        <h2 class="text-xl flex justify-center font-semibold text-gray-700 mb-4">Daftar Pesanan</h2>
+        <h2 class="text-xl flex justify-center font-bold text-black mb-4">Daftar Pesanan</h2>
         <div class="overflow-x-auto">
             <table class="w-full border-collapse border border-gray-300 bg-white shadow-md hidden md:table">
                 <thead>

@@ -5,8 +5,10 @@ namespace App\Notifications;
 use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Broadcasting\Channel;
+use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\DatabaseMessage;
 
@@ -36,10 +38,20 @@ class NewOrderNotification extends Notification
         ];
     }
 
+    // notifikasi untuk broadcasting
+    public function toBroadcast($notifiable)
+    {
+        return new BroadcastMessage([
+            'message' => 'Pesanan baru dari' . ($this->order->user?->name ?? 'Guest'),
+            'order_id' => $this->order->id,
+            'status' => $this->order->status,
+        ]);
+    }
+
     // admin monitoring secara realtime
     public function broadcastOn()
     {
-        return new Channel('orders');
+        return new PrivateChannel('orders');
     }
 
     public function broadcastAs()

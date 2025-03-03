@@ -16,7 +16,7 @@
 
         <!-- Bagian Kanan -->
         <div class="p-6 my-auto w-full md:w-1/2 flex flex-col justify-center">
-            <h2 class="text-2xl font-bold mb-2">Register</h2>
+            <h2 class="text-2xl font-bold mb-2 font-poppins">Register</h2>
             <p class="text-gray-600 mb-6">Halo selamat datang</p>
 
             <form action="{{ route('register') }}" method="POST">

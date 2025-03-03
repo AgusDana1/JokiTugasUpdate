@@ -1,3 +1,35 @@
+<style>
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+  
+    .in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const elements = document.querySelectorAll(".fade-up");
+  
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+            } 
+          });
+        },
+        { threshold: 0.3 }
+      );
+  
+      elements.forEach((el) => observer.observe(el));
+    });
+  </script>
+
 <div class="mt-28 flex flex-col items-center">
     <div class='w-11/12'>
         <img src="{{ asset('img/imgBlog/unseen-studio-s9CC2SKySJM-unsplash.jpg') }}"
@@ -23,7 +55,7 @@
             </h2>
 
             <!-- Grid Layout -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 mt-10">
+        <div class="grid fade-up grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 mt-10">
             <!-- Joki Tugas SD -->
             <div class="flex flex-col items-center bg-blue-500 rounded-xl p-4 shadow-xl hover:scale-110 transition-all duration-500">
                 <img src="{{ asset('img/imgBlog/20 Things We Miss When We Leave Indonesia _ WowShack 1.png') }}" 
@@ -59,7 +91,7 @@
     </div>
 
     {{-- Penjelasan tentang Jasa Joki Tugas --}}
-    <div class="mt-16">
+    <div class="mt-16 fade-up">
         <h2 class="text-center text-xl md:text-3xl font-bold text-gray-950 mb-0">
             Penjelasan Tentang Sheets Si Teman Tugasmu
         </h2>

@@ -1,5 +1,37 @@
+<style>
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+  
+    .in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const elements = document.querySelectorAll(".fade-up");
+  
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+            } 
+          });
+        },
+        { threshold: 0.3 }
+      );
+  
+      elements.forEach((el) => observer.observe(el));
+    });
+  </script>
+
 <div class="mt-28 flex flex-col items-center">
-    {{-- jasa Joki Tugas TOLONG DI RESPONSIFKAN BAGIAN INI SAJAAA!!! --}}
+    {{-- Header --}}
     <div class="w-full flex flex-wrap lg:flex-nowrap gap-10 p-10">
         <div class="w-full lg:w-1/2 flex justify-center lg:justify-end p-3">
             <div class="w-60 h-60 rounded-full overflow-hidden shadow-lg">
@@ -41,7 +73,7 @@
     <img class="h-auto object-cover w-full" src="{{ asset('svg/wave-kebalik3.svg') }}" alt="">
 
     {{-- Tugas Apapun Bisa, Harga murah cuy, Berkualitas & terpercaya --}}
-    <div class="flex flex-wrap md:flex-nowrap justify-evenly w-3/4 md:w-3/4 gap-6 mt-6">
+    <div class="fade-up flex flex-wrap md:flex-nowrap justify-evenly w-3/4 md:w-3/4 gap-6 mt-6">
         <!-- Card 1 -->
         <div class="flex flex-col items-center justify-center space-y-2 w-full md:w-1/3 hover:scale-110 transition-all">
             <div style="font-size: 60px">
@@ -68,7 +100,7 @@
     </div>
 
     {{-- Tugas yang bisa kami kerjakan --}}
-    <div class="mt-28 flex flex-col items-center w-full md:w-3/4">
+    <div class="fade-up mt-28 flex flex-col items-center w-full md:w-3/4">
         <h2 class="font-poppins flex justify-center font-bold text-xs md:text-xl">Tugas yang bisa kami kerjakan</h2>
         <div class="flex flex-col md:flex-row items-center justify-center gap-6 py-4 w-4/5 md:w-full p-4 ">
             <div class="w-10/12 md:w-1/3 flex flex-col items-center gap-6">
@@ -93,7 +125,7 @@
     </div>
 
     {{-- Tugas telah dikerjakan --}}
-    <div class="mt-10 flex flex-col md:flex-row gap-8 md:gap-10 bg-blue-500 w-2/3 md:w-2/3 p-5 rounded-md justify-evenly text-white">
+    <div class="mt-10 fade-up flex flex-col md:flex-row gap-8 md:gap-10 bg-blue-500 w-2/3 md:w-2/3 p-5 rounded-md justify-evenly text-white">
         <div class="flex flex-col items-center">
             <i class="bi bi-mortarboard text-4xl"></i>
             <p class="text-xl font-bold">122</p>
@@ -112,7 +144,7 @@
     </div>
 
     {{-- Jenjang joki tugas yang kami kerjakan --}}
-    <div class="mt-10 flex items-center flex-col w-5/6 md:w-4/5">
+    <div class="mt-10 fade-up flex items-center flex-col w-5/6 md:w-4/5">
         <h2 class="font-bold text-xs md:text-xl font-poppins w-1/2">Jenjang Sheets Si Teman Tugas Yang Dikerjakan</h2>
         {{-- container card jenjang sheets --}}
         <div class="flex flex-col md:flex-row gap-4 md:w-full p-10">
@@ -126,7 +158,7 @@
                             <p class="text-black text-lg font-bold font-poppins mb-7">TUGAS SEKOLAH SD</p>
                             <p class="text-black text-lg font-bold font-poppins mb-0">Harga Tugas Sekolah SD</p>
                             <p class="text-blue-500 hover:text-black transition-all text-lg font-semibold mb-4">Rp10.000 - 20.000</p>
-                            <a href="{{ route('payment.form') }}" target="blank" class="flex items-center font-semibold rounded-full mt-10 px-4 py-2 transition-all duration-300 group/button relative overflow-hidden">
+                            <a href="{{ route('payment.form') }}" class="flex items-center font-semibold rounded-full mt-10 px-4 py-2 transition-all duration-300 group/button relative overflow-hidden">
                                 <div class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center">
                                     <i class="bi bi-cart-fill text-white text-xl"></i>
                                 </div>
@@ -151,7 +183,7 @@
                             <p class="text-black text-lg font-semibold mb-4">TUGAS SEKOLAH SMP</p>
                             <p class="text-black text-lg font-bold font-poppins mb-0">Harga Tugas Sekolah SMP</p>
                             <p class="text-blue-500 hover:text-black transition-all text-lg font-semibold mb-4">Rp20.000 - 35.000</p>
-                            <a href="{{ route('payment.form') }}" target="blank" class="flex items-center font-semibold rounded-full mt-10 px-4 py-2 transition-all duration-300 group/button relative overflow-hidden">
+                            <a href="{{ route('payment.form') }}" class="flex items-center font-semibold rounded-full mt-10 px-4 py-2 transition-all duration-300 group/button relative overflow-hidden">
                                 <div class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center">
                                     <i class="bi bi-cart-fill text-white text-xl"></i>
                                 </div>
@@ -176,7 +208,7 @@
                             <p class="text-black text-lg font-semibold mb-4">TUGAS SEKOLAH SMA</p>
                             <p class="text-black text-lg font-bold font-poppins mb-0">Harga Tugas Sekolah SMA</p>
                             <p class="text-blue-500 hover:text-black transition-all text-lg font-semibold mb-4">Rp45.000 - 60.000</p>
-                            <a href="{{ route('payment.form') }}" target="blank" class="flex items-center font-semibold rounded-full mt-10 px-4 py-2 transition-all duration-300 group/button relative overflow-hidden">
+                            <a href="{{ route('payment.form') }}" class="flex items-center font-semibold rounded-full mt-10 px-4 py-2 transition-all duration-300 group/button relative overflow-hidden">
                                 <div class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center">
                                     <i class="bi bi-cart-fill text-white text-xl"></i>
                                 </div>
@@ -192,14 +224,14 @@
     </div>
 
     {{-- JOki tugas murah disini --}}
-    <div class="mx-auto py-10 space-y-8 w-3/4 md:w-3/4">
+    <div class="mx-auto fade-up py-10 space-y-8 w-3/4 md:w-3/4">
         <!-- Section 1 -->
         <div class="flex flex-col md:flex-row items-center bg-white shadow-md rounded-lg overflow-hidden">
             <img src="{{ asset('img/ed-us-RwZzAcRmbbI-unsplash (1).jpg') }}" alt="Joki Murah" class="w-full md:w-1/3 object-cover rounded-br-xl rounded-bl-xl rounded-tr-xl rounded-tl-xl  shadow-lg">
             <div class="p-6">
                 <h2 class="text-2xl font-bold text-blue-600 mb-4">MENYELESAIKAN TUGAS DISINI MURAH</h2>
                 <p class="text-gray-700 leading-relaxed">
-                    Kamu yang mempunyai budget kurang? Atau pas-pasan? Tenang aja di sini harganya mulai 30 Ribu aja lho..
+                    Kamu yang mempunyai budget kurang? Atau pas-pasan? Tenang aja di sini harganya murah!
                 </p>
             </div>
         </div>
@@ -210,8 +242,8 @@
             <div class="p-6">
                 <h2 class="text-2xl font-bold text-blue-600 mb-4">BERKUALITAS DAN TERPERCAYA</h2>
                 <p class="text-gray-700 leading-relaxed">
-                    Apa takut tugasnya nilainya jelek? Atau takut jadinya lama? Tenang aja di sini kita punya tim profesional 
-                    yang berkualitas dan pasti tugas kamu bakal dikerjain secepat mungkin!
+                    Takut tugasnya nilainya jelek? Atau takut selesainya lama? Tenang aja di sini kita punya tim profesional 
+                    yang berkualitas dan pasti tugas kamu akan dikerjakan secepat mungkin!
                 </p>
             </div>
         </div>
@@ -222,7 +254,7 @@
             <div class="p-6">
                 <h2 class="text-2xl font-bold text-blue-600 mb-4">REVISI GRATIS</h2>
                 <p class="text-gray-700 leading-relaxed">
-                    Gimana? tugasnya gak diterima guru? Atau kalian gak puas sama hasilnya? Santai di sini kalian bisa revisi tugas 
+                    Gimana? tugasnya ditolak sama guru? Atau kalian gak puas sama hasilnya? Santai... di sini kalian bisa revisi tugas 
                     kalian secara gratis.
                 </p>
             </div>

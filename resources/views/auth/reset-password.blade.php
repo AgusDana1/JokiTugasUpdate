@@ -3,8 +3,8 @@
 @section('title', 'Reset Password')
 
 @section('content')
-<div class="flex justify-center items-center bg-black w-full h-screen">
-    <div class="bg-white shadow-xl p-4 w-full border border-black rounded-lg">
+<div class="flex justify-center items-top bg-black w-full h-screen">
+    <div class="bg-white shadow-xl p-4 w-full rounded-lg">
         <h2 class="text-xl font-bold mb-2">Reset Password</h2>
         <p class="text-gray-600 mb-2 text-sm">Masukan password baru Anda.</p>
 

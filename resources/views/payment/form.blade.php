@@ -13,10 +13,10 @@
             <a href="{{ route('home') }}">
                 <i class="bi bi-arrow-left p-2 px-3 w-23"></i>
             </a>
-            <h1 class="text-3xl font-bold mb-6 text-blue-600 text-center">Sheets Si Teman Tugasmu</h1>
-            <p class="text-gray-500 text-center mb-8">Silakan lengkapi form Pembayaran di bawah ini</p>
+            <h1 class="text-3xl font-bold mb-2 text-blue-600 text-center font-poppins">Order Jasa</h1>
+            <p class="text-gray-500 text-center mb-8 font-poppins">Silakan lengkapi form Order Tugas di bawah</p>
     
-            <form action="{{ route('payment.page') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+            <form action="{{ route('payment.page') }}" method="POST" enctype="multipart/form-data" class="space-y-6 font-poppins">
                 @csrf
                 <!-- Nama -->
                 <div>

@@ -2,7 +2,7 @@
     <div class="w-full p-2 flex flex-col lg:flex-row items-center bg-white">
       <!-- Kolom Teks -->
       <div class="lg:w-2/3 text-center lg:text-left">
-        <h1 class="font-extrabold font-poppins text-blue-700 text-4xl">CONTACT US</h1>
+        <h1 class="font-extrabold font-poppins text-blue-700 text-4xl animate-bounce drop-shadow-xl">KONTAK KAMI</h1>
         <p class="text-gray-950 mt-4">
           Bergabunglah bersama kami di Sheets Si Teman Tugasmu dan jadilah bagian dari tim profesional yang membantu ribuan siswa dan siswi meraih kesuksesan akademik! Jika Anda memiliki keahlian di bidang penulisan, analisis, atau penyelesaian tugas akademik, inilah kesempatan Anda untuk mengembangkan potensi sekaligus mendapatkan penghasilan tambahan. Bersama Sheets Si Teman Tugasmu, kita tidak hanya bekerja, tetapi juga memberikan dampak positif bagi dunia pendidikan!
         </p>
@@ -22,7 +22,6 @@
 
     {{-- Founder Sheets si teman tugasmu --}}
     <x-founder-teman-tugas></x-founder-teman-tugas>
-    
     {{-- feedback & map --}}
     <section class="py-2 px-2 bg-blue-100 rounded-lg drop-shadow-lg">
       <div class="w-full mx-auto bg-white p-8 rounded-lg shadow-lg"> 
