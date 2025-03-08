@@ -12,7 +12,9 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\PenjokiController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TaskController;
 use App\Http\Middleware\PreventBackHistory;
 
 Route::get('/', function () {
@@ -109,9 +111,15 @@ Route::middleware(['guest', PreventBackHistory::class])->group(function () {
     })->name('login');
 });
 
-
 Route::middleware(['auth', PreventBackHistory::class])->group(function () {
     Route::get('/', function () {
         return view('homePage');
     })->name('home');
 });
+
+// task/jawaban terkirim
+Route::post('/tasks', [TaskController::class, 'store'])->name('task.store');
+Route::get('/task/view-answer/{id}', [TaskController::class, 'viewAnswer'])->name('task.view-answer');
+
+// notificationn
+Route::get('/notifications', [NotificationController::class, 'getNotifications'])->name('notifications');

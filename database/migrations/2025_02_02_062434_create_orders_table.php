@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('mapel');
             $table->text('deskripsi_tugas');
-            $table->integer('jumlah_halaman');
+            $table->string('jumlah_halaman');
             $table->dateTime('deadline');
             $table->string('image');
             $table->enum('payment_method', ['Transfer Bank', 'e-wallet']);

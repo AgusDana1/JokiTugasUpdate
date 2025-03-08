@@ -58,7 +58,7 @@
                 {{-- Jumlah halaman Tugas --}}
                 <div>
                     <label for="jumlah_halaman" class="block text-sm font-medium text-gray-700 mb-1">Jumlah Halaman</label>
-                    <input type="number" id="jumlah_halaman" name="jumlah_halaman" placeholder="Masukkan Jumlah Halaman Tugas Anda" 
+                    <input type="text" id="jumlah_halaman" name="jumlah_halaman" placeholder="Masukkan Jumlah Halaman Tugas Anda (jika ada)" 
                     class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" 
                     required>
                 </div>

@@ -9,8 +9,60 @@
       opacity: 1;
       transform: translateY(0);
     }
-  </style>
 
+    .galeri-slide {
+      width: 100%;
+      max-width: 1200px;
+      position: relative;
+    }
+
+    .galeri-item img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: filter 0.5s ease;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+      color: white;
+    }
+
+    .galeri-item .teks {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .galeri-item:hover img {
+      filter: brightness(50%);
+    }
+
+    .galeri-item:hover .teks {
+      opacity: 1;
+    }
+    .swiper-button-next, .swiper-button-prev {
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 12px;
+}
+</style>
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const elements = document.querySelectorAll(".fade-up");
@@ -29,12 +81,69 @@
       elements.forEach((el) => observer.observe(el));
     });
   </script>
-
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const elemen = document.querySelectorAll(".muncul-pelan");
+  
+      const pengamat = new IntersectionObserver(
+        (entri) => {
+          entri.forEach((item) => {
+            if (item.isIntersecting) {
+              item.target.classList.add("terlihat");
+            } 
+          });
+        },
+        { threshold: 0.3 }
+      );
+  
+      elemen.forEach((el) => pengamat.observe(el));
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var geserGambar = new Swiper(".galeri-slide", {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    });
+</script>
 <div class="mt-28 flex flex-col items-center">
-    <div class='w-11/12'>
-        <img src="{{ asset('img/imgBlog/unseen-studio-s9CC2SKySJM-unsplash.jpg') }}"
-        class="w-full h-full object-cover shadow-lg rounded-lg" 
-        alt="">
+<div class='w-11/12 flex justify-center'>
+        <div class="swiper galeri-slide">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide galeri-item">
+                    <img src="{{ asset('img/imgBlog/unseen-studio-s9CC2SKySJM-unsplash.jpg') }}" alt="Gambar 1">
+                    <div class="teks">Temukan Solusi Tugas Anda</div>
+                </div>
+                <div class="swiper-slide galeri-item">
+                    <img src="{{ asset('img/andrew-neel-wClUbRMCBD8-unsplash.jpg') }}" alt="Gambar 2">
+                    <div class="teks">Belajar Lebih Mudah</div>
+                </div>
+                <div class="swiper-slide galeri-item">
+                    <img src="{{ asset('img/ed-us-RwZzAcRmbbI-unsplash (1).jpg') }}" alt="Gambar 3">
+                    <div class="teks">Dapatkan Bantuan Profesional</div>
+                </div>
+                <div class="swiper-slide galeri-item">
+                    <img src="{{ asset('img/assad-tanoli-DreH1YbP1js-unsplash.jpg') }}" alt="Gambar 4">
+                    <div class="teks">Cepat, Tepat, dan Akurat</div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
     </div>
 
         {{-- rectangle biru --}}

@@ -22,9 +22,9 @@
             </span>
         </p>
 
-        @if($order->image_path)
+        @if($order->task_images)
         <p><strong>Gambar Tugas:</strong></p>
-        <img src="{{ asset('storage/'.$order->image_path) }}" class="w-64 mt-4">
+        <img src="{{ asset('storage/'.$order->task_images) }}" class="w-64 mt-4">
         @endif
 
         <div class="mt-6">
